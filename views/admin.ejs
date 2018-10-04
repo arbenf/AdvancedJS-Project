@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Titel</title>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="/www/assets/main.js"></script>
+  </head>
+  <body>
+      <h1>Admin</h1>
+
+    <% include partials/nav.ejs %>
+
+    <form id="Recipe-form" method="POST" action="admin">
+        <label for="add">Add recipe</label>
+        <input type="text" name="add">
+        <label for="description">Description</label>
+        <input type="text" name="description">
+        <label for="tags">Tags</label>
+        <input type="text" name="tags">
+        <label for="ingredient">Ingredient</label>
+        <input type="text" name="ingredient">
+        <input type="submit" value="submit">
+    </form>
+  </body>
+</html>
