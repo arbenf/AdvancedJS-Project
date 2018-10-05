@@ -2,8 +2,8 @@
 const fs = require('fs');
 
 let bodyParser = require('body-parser');
+
 let urlEncodedParser = bodyParser.urlencoded({extended: false});
-//let jsonParser = bodyParser.json();
 
 const ldata = JSON.parse(
     fs.readFileSync('./json/livsmedelsdata.json')
@@ -12,12 +12,19 @@ const ldata = JSON.parse(
 const recept = JSON.parse(
     fs.readFileSync('./json/recept/omelett.json')
   );
+
+let newRecipe = JSON.parse(
+    fs.readFileSync('./json/recept/newRecipe.json')
+  );  
   
 module.exports = function(app){
 
+    //Routes for index page
     app.get('/recept', (req, res)=>{
+        let searchWord = req.query;
         res.render('index', {
-            data: recept
+            recept: recept,
+            searchWord: searchWord
         });
     });
 
@@ -26,11 +33,17 @@ module.exports = function(app){
         res.json(recept);
     });
 
-    app.delete('/recept', (req, res)=>{
-        
+    //----------------------------------
+
+    //Routes for Admin page
+    app.get('/admin', (req, res) => {
+        res.render('admin', {
+            data: newRecipe
+        });
     });
 
-    app.get('/admin', (req, res) => {
-        res.render('admin');
+    app.post('/admin', urlEncodedParser, (req, res)=>{
+        newRecipe.push(req.body);
+        res.json(newRecipe);
     });
 };

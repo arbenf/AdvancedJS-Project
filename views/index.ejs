@@ -4,25 +4,30 @@
     <title>Titel</title>
     <meta charset="utf-8">
     <script src="https://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="/assets/main.js"></script>
+    <script src="/assets/index.js"></script>
   </head>
   <body>
     <h1>Recept & Näring</h1>
     <% include partials/nav.ejs %>
 
 
-    <div id="todo-table">
-      <form method="POST" action="/recept">
+    <div id="recept-table">
+      <form method="GET" action="/recept">
           <input type="text" name="item" placeholder="Search" required/>
           <button type="submit">Search</button>
       </form>
     </div>
 
     <ul>
-      <% for(let i=0; i < data.length; i++){%>
-        <li><%= data[i].name %></li>
+      <% for(let i=0; i < recept.length; i++){%>
+        <li><%= recept[i].name %></li>
       <% }; %>
     </ul>
+
+    
+    <aside>
+
+    </aside>
 
   </body>
 </html>

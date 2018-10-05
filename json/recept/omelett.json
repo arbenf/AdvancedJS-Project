@@ -1,5 +1,4 @@
-[
-  {
+[{
   "name": "Omelett",
   "persons": 4,
   "instructions": [
@@ -18,5 +17,5 @@
     }
   ],
   "urlToImg" : "/www/assets/omelett.jpg"
-}
-]
+}]
+
