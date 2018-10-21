@@ -22,29 +22,30 @@ let receptSchema = new mongoose.Schema({
 
 let Recept = mongoose.model('Recept', receptSchema);
 //save to database
-/*let omelett = Recept({
-        name: "Omelett",
+/*let pizza = Recept({
+        name: "Pizza",
         persons: 4,
         instructions: [
-          "Knäck äggen",
-          "Krydda äggsmeten med salt m.m.",
-          "Vispa äggen",
-          "Stek smeten",
-          "Lägg på tallrik"
+          "Baka deg",
+          "Bre på ketchup",
+          "lägg på toppings",
+          "lägg på ost",
+          "grädda"
         ],
         ingredients: [
           {
-            name: "ägg",
+            name: "vetemjöl",
             units: 6,
-            measuringUnit : "st",
+            measuringUnit : "gram",
             unitEquivalentInGrams: 60
           }
         ],
-        urlToImg : "/www/assets/omelett.jpg"
+        urlToImg : "/www/assets/pizza.jpg"
       }).save(function(err){
           if(err) throw err;
           console.log('recept saved');
       });*/
+      
 
 const fs = require('fs');
 
