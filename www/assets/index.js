@@ -1,8 +1,8 @@
-$(document).ready(function(){
+/*$(document).ready(function(){
 
-  $('form').on('submit', function(){
+  $("#recept-table").on('submit', function(){
 
-      var item = $('form input');
+      var item = $('input');
       var recept = {name: item.val()};
 
       $.ajax({
@@ -17,6 +17,6 @@ $(document).ready(function(){
       return false;
 
   });
- });
+ });*/
 
 

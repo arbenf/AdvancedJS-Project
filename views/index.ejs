@@ -3,9 +3,9 @@
   <head>
     <title>Titel</title>
     <meta charset="utf-8">
-    <script src="https://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+ <!-- <script src="https://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="/assets/index.js"></script>
-  </head>
+  </head>-->
   <body>
     <h1>Recept & Näring</h1>
     <% include partials/nav.ejs %>
@@ -14,15 +14,16 @@
     <div id="recept-table">
       <form method="GET" action="/recept">
           <input type="text" name="search" placeholder="Search" required/>
-          <button type="submit">Search</button>
+          <button type="submit" value="Search">Search</button>
       </form>
     </div>
 
-    <ul>
-      <% for(let i=0; i < recept.length; i++){%>
-        <li><%= recept[i].name %></li>
-      <% }; %>
-    </ul>
+    
+      <% recept.forEach(function(r){%>
+        <p><%= r.name %></p>
+        <p><%= r.ingredients %></p>
+      <% }); %>
+    
 
     
 
