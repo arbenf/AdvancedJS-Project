@@ -12,11 +12,13 @@ let receptSchema = new mongoose.Schema({
     ingredients: [
       {
         name: String,
+        category: String,
         units: Number,
         measuringUnit : String,
         unitEquivalentInGrams: Number
       }
     ],
+
     urlToImg : String
 });
 
@@ -68,7 +70,7 @@ let newRecipe = JSON.parse(
 module.exports = function(app){
 
     //Routes for index page
-    app.get('/recept', (req, res)=>{
+    app.get('/', (req, res)=>{
         if(req.query.search){
             const regex = new RegExp(escapeRegex(req.query.search), 'gi');
             Recept.find({name:regex}, function(err, data){
@@ -91,6 +93,33 @@ module.exports = function(app){
                 });
             }); 
         }
+        
+    });
+
+    app.get('/recipefilterByCategories', (req, res) => {
+        if(req.query.search){
+            const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+            Recept.find({category:regex}, function(err, data){
+                if(err){
+                    throw err;
+                } 
+                else{
+                    res.render('index', {
+                        recept: data,
+                    });
+                }
+            }); 
+        }
+        else{
+            //find all in database
+           Recept.find({}, function(err, data){
+               if(err) throw err;
+               res.render('index', {
+                   recept: data,
+               });
+           }); 
+       }
+        
     });
 
 

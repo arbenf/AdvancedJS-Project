@@ -11,23 +11,40 @@
 
     <% include partials/nav.ejs %>
 
+    <h3>Add recipe</h3>
+
     <form id="Recipe-form" method="POST" action="/admin">
-        <label for="add">Add recipe</label>
+        <label for="Name">Name</label>
+        <br>
         <input type="text" name="add">
+        <br>
+        <br>
         <label for="description">Description</label>
+        <br>
         <input type="text" name="description">
-        <label for="tags">Tags</label>
-        <input type="text" name="tags">
-        <label for="ingredient">Ingredient</label>
+        <br>
+        <br>
+        <label for="Category">Category</label>
+        <br>
+        <input type="text" name="Category">
+        <br>
+        <br>
+        <label for="ingredient1">Ingredient</label>
+        <br>
         <input type="text" name="ingredient">
+        <br>
+        <br>
         <input type="submit" value="submit">
     </form>
 
     <ul>
       <% for(let i=0; i < data.length; i++){%>
         <li><%= data[i].name %></li>
+        <li><%= data[i].Category %></li>
       <% }; %>
     </ul>
+
+    
 
   </body>
 </html>
